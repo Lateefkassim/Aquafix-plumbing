@@ -11,7 +11,7 @@ function StarRating({ count }: { count: number }) {
         <Star
           key={i}
           className={`w-4 h-4 ${
-            i < count ? "text-teal-500 fill-teal-500" : "text-slate-200"
+            i < count ? "text-green-600 fill-green-600" : "text-slate-200"
           }`}
         />
       ))}
@@ -21,11 +21,11 @@ function StarRating({ count }: { count: number }) {
 
 export default function TestimonialsSection() {
   return (
-    <section id="reviews" className="bg-slate-50 py-20 md:py-28">
+    <section id="reviews" className="bg-[#F8F7F4] py-20 md:py-28">
       <div className="max-w-5xl mx-auto px-4">
         {/* Header */}
         <FadeIn className="text-center mb-16">
-          <span className="inline-block text-teal-700 font-semibold uppercase tracking-widest text-xs mb-3">
+          <span className="inline-block text-green-700 font-semibold uppercase tracking-widest text-xs mb-3">
             Customer Reviews
           </span>
           <h2 className="text-3xl md:text-[2.7rem] font-extrabold text-slate-900 tracking-tight">
@@ -42,7 +42,7 @@ export default function TestimonialsSection() {
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 text-teal-500 fill-teal-500"
+                    className="w-5 h-5 text-green-600 fill-green-600"
                   />
                 ))}
               </div>
@@ -59,7 +59,7 @@ export default function TestimonialsSection() {
             <FadeIn key={review.name} delay={i * 0.08}>
               <div className="bg-white border border-slate-200 rounded-2xl p-7 shadow-[0_1px_2px_rgba(2,6,23,0.06)] hover:shadow-[0_20px_35px_-20px_rgba(2,6,23,0.28)] hover:border-slate-300 transition-all duration-300 h-full flex flex-col">
                 {/* Quote icon */}
-                <Quote className="w-6 h-6 text-teal-200 mb-3 flex-shrink-0" />
+                <Quote className="w-6 h-6 text-green-200 mb-3 flex-shrink-0" />
 
                 <StarRating count={review.rating} />
 

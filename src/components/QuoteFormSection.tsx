@@ -10,23 +10,24 @@ import {
   Clock,
   Star,
   ShieldCheck,
-  CalendarCheck,
+  Sparkles,
 } from "lucide-react";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import FadeIn from "./FadeIn";
-import plumbAtWorkImage from "../assets/images/plumb_at_work.webp";
 
 type FormData = {
   name: string;
   phone: string;
+  email: string;
   service: string;
+  homeSize: string;
   message: string;
 };
 
 const trustPoints = [
-  { icon: Clock, text: "We confirm your booking quickly" },
-  { icon: ShieldCheck, text: "Licensed & fully insured" },
+  { icon: Clock, text: "We confirm your booking within minutes" },
+  { icon: ShieldCheck, text: "Background checked and fully insured" },
   { icon: Star, text: `${siteConfig.overallRating}★ rated by ${siteConfig.reviewCount} customers` },
   { icon: Phone, text: "No spam. Direct service communication only" },
 ];
@@ -64,32 +65,32 @@ export default function QuoteFormSection() {
       <div className="max-w-5xl mx-auto px-4">
         {/* Section header */}
         <FadeIn className="text-center mb-14">
-          <span className="inline-block text-teal-700 font-semibold uppercase tracking-widest text-xs mb-3">
-            Book a Call
+          <span className="inline-block text-green-700 font-semibold uppercase tracking-widest text-xs mb-3">
+            Book Now
           </span>
           <h2 className="text-3xl md:text-[2.7rem] font-extrabold text-slate-900 tracking-tight">
-            Get Expert Help Without Guesswork
+            Book Your Clean Today
           </h2>
           <p className="text-slate-500 mt-4 max-w-xl mx-auto text-[17px] leading-relaxed">
-            Tell us the issue and book your consultation. We&apos;ll guide the
-            fastest path to fix it.
+            Tell us about your home and we&apos;ll confirm your booking within
+            minutes.
           </p>
         </FadeIn>
 
         <div className="grid md:grid-cols-5 gap-8 md:gap-10 items-start">
           {/* ── Left: Trust sidebar ── */}
           <FadeIn direction="left" className="md:col-span-2">
-            <div className="bg-slate-950 text-white rounded-2xl p-7 h-full shadow-[0_18px_40px_-25px_rgba(2,6,23,0.9)]">
+            <div className="bg-gray-900 text-white rounded-2xl p-7 h-full shadow-[0_18px_40px_-25px_rgba(2,6,23,0.9)]">
               {/* Photo */}
               <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-6">
                 <Image
-                  src={plumbAtWorkImage}
-                  alt="Plumber fixing pipes"
+                  src="https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=900&q=80"
+                  alt="Smiling cleaner in uniform inside a bright home"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 280px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
               </div>
 
               <h3 className="text-lg font-bold mb-1">{siteConfig.businessName}</h3>
@@ -100,8 +101,8 @@ export default function QuoteFormSection() {
               <div className="space-y-4">
                 {trustPoints.map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-teal-400/10 border border-teal-400/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-4 h-4 text-teal-300" />
+                    <div className="w-8 h-8 bg-green-400/10 border border-green-400/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-4 h-4 text-green-300" />
                     </div>
                     <span className="text-slate-300 text-sm">{text}</span>
                   </div>
@@ -114,7 +115,7 @@ export default function QuoteFormSection() {
                 </p>
                 <a
                   href={siteConfig.phoneHref}
-                  className="flex items-center gap-2 text-teal-300 font-bold hover:text-teal-200 transition-colors"
+                  className="flex items-center gap-2 text-green-300 font-bold hover:text-green-200 transition-colors"
                 >
                   <Phone className="w-4 h-4" />
                   {siteConfig.phone}
@@ -135,8 +136,7 @@ export default function QuoteFormSection() {
                     Request Received!
                   </h3>
                   <p className="text-slate-500 mb-6 text-sm leading-relaxed">
-                    We&apos;ll reach out shortly to confirm details and next
-                    steps.
+                    We&apos;ll reach out shortly to confirm your cleaning slot.
                   </p>
                   <a
                     href={siteConfig.phoneHref}
@@ -165,7 +165,7 @@ export default function QuoteFormSection() {
                       type="text"
                       placeholder="John Smith"
                       {...register("name", { required: "Name is required" })}
-                      className={`w-full bg-white border rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition ${
+                      className={`w-full bg-white border rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition ${
                         errors.name
                           ? "border-red-400 bg-red-50"
                           : "border-slate-200"
@@ -198,7 +198,7 @@ export default function QuoteFormSection() {
                           message: "Enter a valid phone number",
                         },
                       })}
-                      className={`w-full bg-white border rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition ${
+                      className={`w-full bg-white border rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition ${
                         errors.phone
                           ? "border-red-400 bg-red-50"
                           : "border-slate-200"
@@ -212,20 +212,53 @@ export default function QuoteFormSection() {
                     )}
                   </div>
 
+                  {/* Email */}
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-semibold text-slate-700 mb-1.5"
+                    >
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="you@example.com"
+                      {...register("email", {
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                          message: "Enter a valid email address",
+                        },
+                      })}
+                      className={`w-full bg-white border rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition ${
+                        errors.email
+                          ? "border-red-400 bg-red-50"
+                          : "border-slate-200"
+                      }`}
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3" />
+                        {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+
                   {/* Service */}
                   <div>
                     <label
                       htmlFor="service"
                       className="block text-sm font-semibold text-slate-700 mb-1.5"
                     >
-                      Service Needed <span className="text-red-500">*</span>
+                      Service Type <span className="text-red-500">*</span>
                     </label>
                     <select
                       id="service"
                       {...register("service", {
                         required: "Please select a service",
                       })}
-                      className={`w-full bg-white border rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition ${
+                      className={`w-full bg-white border rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition ${
                         errors.service
                           ? "border-red-400 bg-red-50"
                           : "border-slate-200"
@@ -246,6 +279,39 @@ export default function QuoteFormSection() {
                     )}
                   </div>
 
+                  {/* Home size */}
+                  <div>
+                    <label
+                      htmlFor="homeSize"
+                      className="block text-sm font-semibold text-slate-700 mb-1.5"
+                    >
+                      Home Size <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      id="homeSize"
+                      {...register("homeSize", {
+                        required: "Please select a home size",
+                      })}
+                      className={`w-full bg-white border rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition ${
+                        errors.homeSize
+                          ? "border-red-400 bg-red-50"
+                          : "border-slate-200"
+                      }`}
+                    >
+                      <option value="">— Select home size —</option>
+                      <option value="Studio/1BR">Studio/1BR</option>
+                      <option value="2-3 Bedrooms">2-3 Bedrooms</option>
+                      <option value="4+ Bedrooms">4+ Bedrooms</option>
+                      <option value="Commercial Space">Commercial Space</option>
+                    </select>
+                    {errors.homeSize && (
+                      <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3" />
+                        {errors.homeSize.message}
+                      </p>
+                    )}
+                  </div>
+
                   {/* Message */}
                   <div>
                     <label
@@ -260,9 +326,9 @@ export default function QuoteFormSection() {
                     <textarea
                       id="message"
                       rows={3}
-                      placeholder="Brief description of your issue..."
+                      placeholder="Any specific instructions or areas to focus on?"
                       {...register("message")}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition resize-none"
+                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition resize-none"
                     />
                   </div>
 
@@ -285,7 +351,7 @@ export default function QuoteFormSection() {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="w-full bg-slate-900 hover:bg-slate-800 disabled:opacity-60 text-white font-bold text-base py-4 rounded-xl shadow-[0_14px_30px_-20px_rgba(15,23,42,0.7)] hover:-translate-y-0.5 disabled:translate-y-0 transition-all flex items-center justify-center gap-2"
+                    className="w-full bg-green-600 hover:bg-green-700 disabled:opacity-60 text-white font-bold text-base py-4 rounded-xl shadow-[0_14px_30px_-20px_rgba(22,163,74,0.75)] hover:-translate-y-0.5 disabled:translate-y-0 transition-all flex items-center justify-center gap-2"
                   >
                     {status === "loading" ? (
                       <>
@@ -294,8 +360,8 @@ export default function QuoteFormSection() {
                       </>
                     ) : (
                       <>
-                        <CalendarCheck className="w-5 h-5" />
-                        Book My Call
+                        <Sparkles className="w-5 h-5" />
+                        Book My Clean →
                       </>
                     )}
                   </button>

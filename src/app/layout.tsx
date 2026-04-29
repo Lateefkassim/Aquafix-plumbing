@@ -13,20 +13,19 @@ const font = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: `${siteConfig.businessName} | Trusted Plumbing in ${siteConfig.city}`,
-  description: `Book a plumbing call with licensed professionals in ${siteConfig.city}, ${siteConfig.state}. Clear pricing, same-day support, and emergency response when you need it.`,
+  title: `${siteConfig.businessName} | Trusted Home Cleaning in ${siteConfig.city}`,
+  description: `Book trusted home cleaning in ${siteConfig.city}, ${siteConfig.state}. Vetted cleaners, flexible scheduling, and spotless results.`,
   keywords: [
-    `plumber ${siteConfig.city}`,
-    `book plumber ${siteConfig.city}`,
-    `emergency plumbing ${siteConfig.city}`,
-    "leak repair",
-    "drain cleaning",
-    "water heater repair",
-    "licensed plumber",
+    `home cleaning ${siteConfig.city}`,
+    `house cleaning ${siteConfig.city}`,
+    `deep cleaning ${siteConfig.city}`,
+    "move out cleaning",
+    "maid service",
+    "cleaning service",
   ],
   openGraph: {
-    title: `${siteConfig.businessName} | Book Trusted Plumbing Help`,
-    description: `Clear pricing, licensed experts, and same-day plumbing in ${siteConfig.city}. Book a call now.`,
+    title: `${siteConfig.businessName} | Book Trusted Cleaning`,
+    description: `Vetted cleaners, transparent pricing, and same-day availability in ${siteConfig.city}. Book online in minutes.`,
     type: "website",
   },
 };
@@ -40,13 +39,13 @@ export default function RootLayout({
     <html lang="en" className={font.variable}>
       <head>
         <meta name="format-detection" content="telephone=yes" />
-        <meta name="theme-color" content="#0b1228" />
+        <meta name="theme-color" content="#111827" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Plumber",
+              "@type": "HouseCleaning",
               name: siteConfig.businessName,
               telephone: siteConfig.phone,
               address: {
@@ -55,7 +54,7 @@ export default function RootLayout({
                 addressRegion: siteConfig.state,
                 addressCountry: "US",
               },
-              openingHours: "Mo-Su 00:00-24:00",
+              openingHours: "Mo-Sa 08:00-18:00",
               priceRange: "$$",
               aggregateRating: {
                 "@type": "AggregateRating",

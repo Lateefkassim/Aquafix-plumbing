@@ -4,8 +4,6 @@ import { Phone, CalendarCheck, CheckCircle, Star } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { siteConfig } from "@/config/site";
-import homeHeroImage from "../assets/images/pb_home.avif";
-
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
   animate: { opacity: 1, y: 0 },
@@ -14,26 +12,26 @@ const fadeUp = (delay = 0) => ({
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-slate-950">
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-gray-900">
       {/* Background photo with dark overlay */}
       <Image
-        src={homeHeroImage}
-        alt="Professional plumber working"
+        src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80"
+        alt="Professional cleaner working in a bright home"
         fill
         priority
         className="object-cover object-center"
         sizes="100vw"
       />
       {/* Layered gradient overlay — darker at top, lighter at bottom for text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950/92 via-slate-900/85 to-slate-800/80" />
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/82 via-gray-900/72 to-gray-800/62" />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 py-20 md:py-28">
         {/* Urgency pill */}
         <motion.div {...fadeUp(0)} className="mb-6">
-          <span className="inline-flex items-center gap-2 bg-teal-400/15 border border-teal-300/30 text-teal-200 text-xs font-semibold tracking-wide px-4 py-1.5 rounded-full backdrop-blur-sm">
-            <span className="w-2 h-2 bg-teal-300 rounded-full animate-pulse" />
-            Trusted Local Team - Same-Day Service
+          <span className="inline-flex items-center gap-2 bg-green-500/15 border border-green-300/30 text-green-100 text-xs font-semibold tracking-wide px-4 py-1.5 rounded-full backdrop-blur-sm">
+            <span className="w-2 h-2 bg-green-300 rounded-full animate-pulse" />
+            Trusted Local Team - Same Day Available
           </span>
         </motion.div>
 
@@ -60,14 +58,14 @@ export default function HeroSection() {
         >
           <a
             href="/book-call"
-            className="inline-flex items-center justify-center gap-2.5 bg-[#00B896] hover:bg-[#00a786] text-slate-950 font-bold text-base px-7 py-4 rounded-xl shadow-[0_14px_30px_-18px_rgba(0,184,150,0.85)] hover:-translate-y-0.5 active:translate-y-0 transition-all"
+            className="inline-flex items-center justify-center gap-2.5 bg-green-600 hover:bg-green-700 text-white font-bold text-base px-7 py-4 rounded-xl shadow-[0_14px_30px_-18px_rgba(22,163,74,0.85)] hover:-translate-y-0.5 active:translate-y-0 transition-all"
           >
             <CalendarCheck className="w-4 h-4" />
-            Book a Call
+            Book a Clean
           </a>
           <a
             href={siteConfig.phoneHref}
-            className="inline-flex items-center justify-center gap-2.5 border border-white/30 bg-white/10 hover:bg-white/15 text-white font-bold text-base px-7 py-4 rounded-xl hover:-translate-y-0.5 active:translate-y-0 transition-all backdrop-blur-sm"
+            className="inline-flex items-center justify-center gap-2.5 border border-white/45 bg-white/5 hover:bg-white/12 text-white font-bold text-base px-7 py-4 rounded-xl hover:-translate-y-0.5 active:translate-y-0 transition-all backdrop-blur-sm"
           >
             <Phone className="w-4 h-4" />
             Call {siteConfig.phone}
@@ -80,7 +78,7 @@ export default function HeroSection() {
           <div className="flex items-center gap-1.5">
             <div className="flex">
               {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="w-4 h-4 text-teal-300 fill-teal-300" />
+                <Star key={i} className="w-4 h-4 text-green-300 fill-green-300" />
               ))}
             </div>
             <span className="text-white text-sm font-semibold">{siteConfig.overallRating}</span>
@@ -92,7 +90,7 @@ export default function HeroSection() {
           {/* Trust badges */}
           {siteConfig.trustBadges.map((badge) => (
             <div key={badge} className="flex items-center gap-1.5 text-slate-300 text-sm">
-              <CheckCircle className="w-4 h-4 text-teal-300 flex-shrink-0" />
+              <CheckCircle className="w-4 h-4 text-green-300 flex-shrink-0" />
               {badge}
             </div>
           ))}

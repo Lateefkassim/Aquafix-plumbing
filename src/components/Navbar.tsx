@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CalendarCheck, Menu, Phone, X } from "lucide-react";
+import { CalendarCheck, Menu, Phone, Sparkles, X } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
@@ -15,20 +15,8 @@ export default function Navbar() {
       <div className="max-w-5xl mx-auto px-4 h-[4.25rem] flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center group-hover:bg-teal-500 transition-colors">
-            <svg
-              className="w-4 h-4 text-white transition-colors"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-              />
-            </svg>
+          <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center group-hover:bg-green-600 transition-colors">
+            <Sparkles className="w-4 h-4 text-white transition-colors" />
           </div>
           <span className="font-extrabold text-slate-900 text-base tracking-tight">
             {siteConfig.businessName}
@@ -47,7 +35,7 @@ export default function Navbar() {
             Reviews
           </Link>
           <Link href="/#quote" className="hover:text-slate-900 transition-colors">
-            Get Quote
+            Book Now
           </Link>
         </nav>
 
@@ -62,10 +50,10 @@ export default function Navbar() {
           </a>
           <Link
             href="/book-call"
-            className="inline-flex items-center gap-2 bg-slate-900 hover:bg-teal-600 text-white font-bold text-sm px-4 py-2.5 rounded-xl transition-all shadow-[0_8px_20px_-14px_rgba(2,6,23,0.9)]"
+            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold text-sm px-4 py-2.5 rounded-xl transition-all shadow-[0_8px_20px_-14px_rgba(22,163,74,0.75)]"
           >
             <CalendarCheck className="w-4 h-4" />
-            Book a Call
+            Book a Clean
           </Link>
         </div>
 
@@ -92,7 +80,7 @@ export default function Navbar() {
                 Reviews
               </Link>
               <Link onClick={closeMobile} href="/#quote" className="px-3 py-2.5 rounded-lg hover:bg-slate-100">
-                Get Quote
+                Book Now
               </Link>
             </nav>
 

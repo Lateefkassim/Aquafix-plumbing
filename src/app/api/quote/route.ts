@@ -4,9 +4,9 @@ import { siteConfig } from "@/config/site";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, phone, service, message } = body;
+    const { name, phone, email, service, homeSize, message } = body;
 
-    if (!name || !phone || !service) {
+    if (!name || !phone || !email || !service || !homeSize) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({ name, phone, service, message }),
+        body: JSON.stringify({ name, phone, email, service, homeSize, message }),
       });
 
       if (!webhookRes.ok) {
@@ -48,12 +48,20 @@ export async function POST(req: NextRequest) {
     // await transporter.sendMail({
     //   from: process.env.SMTP_USER,
     //   to: siteConfig.email,
-    //   subject: `New Quote Request — ${service}`,
-    //   text: `Name: ${name}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}`,
+    //   subject: `New Cleaning Booking — ${service}`,
+    //   text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nService: ${service}\nHome Size: ${homeSize}\nMessage: ${message}`,
     // });
 
     // Always log to server console so you can see leads in hosting logs
-    console.log("[LEAD]", { name, phone, service, message, ts: new Date().toISOString() });
+    console.log("[LEAD]", {
+      name,
+      phone,
+      email,
+      service,
+      homeSize,
+      message,
+      ts: new Date().toISOString(),
+    });
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {

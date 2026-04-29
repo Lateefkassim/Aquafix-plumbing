@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --brand-navy: #0b1228;
-  --brand-teal: #2dd4bf;
+  --brand-text: #0f172a;
+  --brand-accent: #16a34a;
 }
 
 html {
@@ -13,12 +13,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #ffffff;
-  color: var(--brand-navy);
+  color: var(--brand-text);
 }
 
 ::selection {
-  background: rgba(45, 212, 191, 0.35);
-  color: #0b1228;
+  background: rgba(22, 163, 74, 0.28);
+  color: #0f172a;
 }
 
 /* Mobile sticky bar spacing */
